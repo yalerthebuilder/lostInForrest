@@ -2,6 +2,10 @@ Software enginner class project
 
 Can you help partrick find spongebob?
 
+
+Pre-requirement:
+  pygame: type in "pip3 install pygame" to install
+  
 Game Mode Avaliable:
   EASY: 300*300
   MEDIUML: 500*500
