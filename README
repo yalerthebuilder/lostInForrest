@@ -4,7 +4,8 @@ Can you help partrick find spongebob?
 
 
 Pre-requirement:
-  pygame: type in "pip3 install pygame in terminal" to install
+  pygame: type in "pip3 install pygame" in terminal
+  install instrctions reference: https://www.pygame.org/wiki/GettingStarted
   
 Game Mode Avaliable:
   EASY: 300*300
