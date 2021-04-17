@@ -1,5 +1,6 @@
 import pygame
 import os
+import sys
 import random
 
 # k_2 data
@@ -57,6 +58,8 @@ def displayGameWindow(player_one_container, player_two_container):
 
 
 def displayGameOverWindow():
+    pygame.init()
+    pygame.mixer.init()
     game_sound.stop()
     pygame.mixer.Sound.play(celebration_sound)
     start_time = pygame.time.get_ticks()
@@ -65,7 +68,8 @@ def displayGameOverWindow():
         gameOverImage = pygame.image.load(os.path.join('images', "gameover.jpg"))
         gameWindow.blit(gameOverImage, (0, 0))
         pygame.display.update()
-    pygame.quit()
+    sys.exit()
+
 
 
 def player_one_random_movement(player_one_Container):
@@ -202,7 +206,7 @@ def auto_stimulation():
             stepCounter += 1
             displayGameWindow(player_one_container, player_two_container)
     print(stepCounter)
-    pygame.quit()
+    sys.exit()
 
 
 def k_2_counterStimulation():
@@ -212,6 +216,8 @@ def k_2_counterStimulation():
     :return: NONE
 
     """
+    pygame.init()
+    pygame.mixer.init()
     player_one_container = pygame.Rect(0, 0, person_width, person_height)
     player_two_container = pygame.Rect(k2_width - person_width, k2_height - person_height, person_width, person_height)
     clock = pygame.time.Clock()
@@ -230,7 +236,6 @@ def k_2_counterStimulation():
                 is_GameOver = False
                 displayGameOverWindow()
 
-
         key_pressed = pygame.key.get_pressed()
 
         player_one_movement(key_pressed, player_one_container)
@@ -238,17 +243,8 @@ def k_2_counterStimulation():
         displayGameWindow(player_one_container, player_two_container)
     print(stepCounter)
     pygame.quit()
+    sys.exit()
 
 
 k_2_counterStimulation()
 
-'''
-def menu():
-    print("Enter 1 for k2-stimulation")
-    print("Enter 2 for auto-stimulation")
-    gameMode = int(input("ENTER YOUR GAME MODE"))
-    #if gameMode == 1:
-    #    k_2_counterStimulation()
-    #if gameMode == 2:
-    #    auto_stimulation()
-'''
