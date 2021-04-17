@@ -1,6 +1,6 @@
 Software enginner class project
 
-Can you help partrick find spongebob
+Can you help partrick find spongebob?
 
 Game Mode Avaliable:
   EASY: 300*300
@@ -9,4 +9,13 @@ Game Mode Avaliable:
   VERY HARD: 2560*1600
   
   
+How to control:
+  Partrick(user 1): is able to press keyboard "w", "s", "a", "d" to move up, down, left, right
+  Spongebob(user 2):  is able to press keyboard up, down, left, right to move up, down, left, right
+  
+Game Finish Requirement:
+  Once Partrick sees spongebob, game is over and a celebration screen will be displayed with the celebration sound
+  
+Bump into the wall:
+  Partrick and Spongebob don't have superpower so if they hit the wall they will be forced to go back to recent position with a collision sound
   
