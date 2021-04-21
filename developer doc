@@ -1,5 +1,5 @@
 Require package:
     pygame
 
-    installation: type pip3 install pygame in terminal
-    link: https://www.pygame.org/news
+    installation: type "pip3 install pygame" in terminal
+    reference: https://www.pygame.org/wiki/GettingStarted
