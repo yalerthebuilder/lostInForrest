@@ -1,0 +1,29 @@
+run menu.py
+
+A menu page should be displayed
+
+Inside the menu page there will be
+    1. start
+    2. option
+    3. credit
+
+    for start page:
+        user can go back to menu by press "esc" key
+        user can select the game mode by clicking the button:
+            once user select the game mode and clicked the button, game will start
+
+    for option page:
+        user can also go back to menu by press "esc" key
+        user can change the volume setting mode by clicking the button
+
+    for credit page:
+        user can also go back to menu by press "esc" key
+        user can view the credit of this program
+
+How to control:
+  Patrick(user 1): is able to press keyboard "w", "s", "a", "d" to move up, down, left, right
+  Spongebob(user 2):  is able to press keyboard up, down, left, right to move up, down, left, right
+
+
+How to win:
+    when Patrick meet spongebob, the game will be over
