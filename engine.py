@@ -604,8 +604,6 @@ def Map2560_manuelStimulation():
     sys.exit()
 
 
-
-
 def menu():
     print("Choose your level of difficulty")
     print("1 for rocket map(300*300) *easy")
@@ -629,5 +627,3 @@ def menu():
 
 
 
-
-menu()
