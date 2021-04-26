@@ -137,6 +137,7 @@ def main_menu():
         pygame.display.update()
         mainClock.tick(60)
 
+
 # game engine
 def draw_text(text, font, color, surface, x, y):
     """
@@ -849,6 +850,8 @@ def k_3To5_game():
             height = int(input('Enter your height(0-1000): '))
             if height in range(0, 1000):
                 break
+            else:
+                print("Out of range")
         except:
             print("That's not a valid option!")
 
@@ -1408,10 +1411,10 @@ def player_three_random_movement(player_three_Container, width, height):
             pygame.mixer.Channel(0).play(collision_sound_loader, maxtime=600)
 
 
-def player_four_random_movement(player_four_Container,width, height):
+def player_four_random_movement(player_four_Container, width, height):
     """
 
-    :param player_three_Container:  player three container
+    :param player_four_Container:  player three container
     :param height: window height
     :param width: window width
     :return: NONE
@@ -1695,5 +1698,6 @@ def random_stimulation_CustomizeMap():
                           player_two_container=player_two_container,
                           person_One_Image=person_One_Image,
                           person_Two_Image=person_Two_Image)
+
 
 main_menu()
