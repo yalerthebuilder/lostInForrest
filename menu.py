@@ -275,7 +275,7 @@ def game_Menu():
         screen.fill((0, 0, 0))
         screen.blit(menuPicture, (0, 0))
         draw_text('ESC "Menu"', font, (255, 255, 255), screen, 20, 20)
-        draw_text('Select Level Of Difficulty', font, (255, 255, 255), screen, 20, 50)
+        draw_text('Select Game Mode', font, (255, 255, 255), screen, 20, 50)
 
         # mouse position
         mx, my = pygame.mouse.get_pos()
@@ -966,7 +966,7 @@ def randomStimulationMenu():
         screen.fill((0, 0, 0))
         screen.blit(menuPicture, (0, 0))
         draw_text('ESC "exit"', font, (255, 255, 255), screen, 20, 20)
-
+        draw_text('Random Stimulation Mode', font, (255, 255, 255), screen, 20, 50)
         mx, my = pygame.mouse.get_pos()
 
         # rect( x, y, len, width)
@@ -977,27 +977,27 @@ def randomStimulationMenu():
         if button_1.collidepoint((mx, my)):
             if click:
                 print("300*300 Stimulation")
-                random_stimulation_300()
+                random_stimulation_500()
         if button_2.collidepoint((mx, my)):
             if click:
                 print("500*500 Stimulation")
                 random_stimulation_500()
         if button_3.collidepoint((mx, my)):
             if click:
-                print("500*500 Stimulation")
-                random_stimulation_500()
-        if button_4.collidepoint((mx, my)):
-            if click:
                 print("1000*1000 Stimulation")
                 random_stimulation_1000()
+        if button_4.collidepoint((mx, my)):
+            if click:
+                print("Build Your Map")
+                random_stimulation_CustomizeMap()
         pygame.draw.rect(screen, (255, 0, 0), button_1)
         draw_text('300*300', font, (255, 255, 255), screen, 220, 100)
         pygame.draw.rect(screen, (255, 0, 0), button_2)
         draw_text('500*500', font, (255, 255, 255), screen, 220, 200)
         pygame.draw.rect(screen, (255, 0, 0), button_3)
-        draw_text('500*500', font, (255, 255, 255), screen, 220, 300)
+        draw_text('1000*1000', font, (255, 255, 255), screen, 210, 300)
         pygame.draw.rect(screen, (255, 0, 0), button_4)
-        draw_text('1000*1000', font, (255, 255, 255), screen, 190, 400)
+        draw_text('Customize Map', font, (255, 255, 255), screen, 170, 400)
 
         click = False
         for event in pygame.event.get():
@@ -1006,8 +1006,7 @@ def randomStimulationMenu():
                 sys.exit()
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
-                    pygame.quit()
-                    sys.exit()
+                    main_menu()
             if event.type == MOUSEBUTTONDOWN:
                 if event.button == 1:
                     click = True
@@ -1088,67 +1087,6 @@ def player_two_random_movement(player_two_Container, width, height):
             pygame.mixer.Channel(0).play(collision_sound_loader, maxtime=600)
 
 
-def random_stimulation_100():
-    """
-
-    stimulate the k_2 student lost in forrest game
-    :return: NONE
-
-    """
-    pygame.init()
-    pygame.mixer.init()
-    player_one_container = pygame.Rect(0, 0, person_width, person_height)
-
-    # map data
-    width, height = 100, 100
-    gameWindow = pygame.display.set_mode((width, height))
-    pygame.display.set_caption("Lost in the Wood")
-
-    # forrest image
-    forrestImage = pygame.image.load(os.path.join('images', "300map.jpg"))
-
-    # game over image
-    gameOverImage = pygame.image.load(os.path.join('images', "300gameover.jpg"))
-
-    # person one image
-    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
-    person_One_Image.convert_alpha()
-    person_One_Image.set_colorkey(alpha)
-
-    # person two image
-    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
-    person_Two_Image.convert_alpha()
-    person_Two_Image.set_colorkey(alpha)
-
-    player_two_container = pygame.Rect(width - person_width, height - person_height, person_width, person_height)
-    clock = pygame.time.Clock()
-    is_GameOver = False
-    stepCounter = 0
-    while not is_GameOver:
-        game_sound.play(-1)
-        clock.tick(FPS)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            # if they meet game over
-            if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
-                    player_one_container.y - player_two_container.y) <= 100:
-                is_GameOver = False
-                randomStimulationMenu()
-
-        key_pressed = pygame.key.get_pressed()
-        if key_pressed:
-            stepCounter += 1
-        player_one_random_movement(player_one_container, width, height)
-        player_two_random_movement(player_two_container, width, height)
-        displayGameWindow(gameWindow,
-                          player_one_container=player_one_container,
-                          forrestImage=forrestImage,
-                          player_two_container=player_two_container,
-                          person_One_Image=person_One_Image,
-                          person_Two_Image=person_Two_Image)
-
-
 def random_stimulation_300():
     """
     Random Stimulate map size of 300 * 300
@@ -1166,9 +1104,6 @@ def random_stimulation_300():
     # forrest image
     forrestImage = pygame.image.load(os.path.join('images', "300map.jpg"))
 
-    # gameover image
-    gameOverImage = pygame.image.load(os.path.join('images', "300gameover.jpg"))
-
     # person one image
     person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
     person_One_Image.convert_alpha()
@@ -1192,7 +1127,7 @@ def random_stimulation_300():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "300 * 300:     " + str(stepCounter) + "\n"
+                Data = "300 * 300:     " + str(stepCounter)+"\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -1228,9 +1163,6 @@ def random_stimulation_500():
     # forrest image
     forrestImage = pygame.image.load(os.path.join('images', "500map.jpg"))
 
-    # game over image
-    gameOverImage = pygame.image.load(os.path.join('images', "500gameover.jpg"))
-
     # person one image
     person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
     person_One_Image.convert_alpha()
@@ -1254,7 +1186,8 @@ def random_stimulation_500():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "500 * 500:     " + str(stepCounter) + "\n"
+                Data = "500 * 500:          " + str(stepCounter) + "\n"
+                recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
 
@@ -1288,9 +1221,6 @@ def random_stimulation_1000():
     # forrest image
     forrestImage = pygame.image.load(os.path.join('images', "forrest.jpg"))
 
-    # game over image
-    gameOverImage = pygame.image.load(os.path.join('images', "forrestgameover.jpg"))
-
     # person one image
     person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
     person_One_Image.convert_alpha()
@@ -1314,7 +1244,8 @@ def random_stimulation_1000():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "1000 * 1000:     " + str(stepCounter) + "\n"
+                Data = "2560 * 1600:        " + str(stepCounter) + "\n"
+                recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
 
@@ -1330,7 +1261,8 @@ def random_stimulation_1000():
                           person_One_Image=person_One_Image,
                           person_Two_Image=person_Two_Image)
 
-def random_stimulation_1000():
+
+def random_stimulation_CustomizeMap():
     """
     Random Stimulate map size of 1000 * 1000
     :return: NONE
@@ -1340,15 +1272,29 @@ def random_stimulation_1000():
     player_one_container = pygame.Rect(0, 0, person_width, person_height)
 
     # map data
-    width, height = 1000, 1000
+    while True:
+        try:
+            width = int(input('Enter your width(0-1000):'))
+            if width in range(0, 1000):
+                break
+            else:
+                print("Out of range")
+        except:
+            print("That's not a valid option!")
+
+    while True:
+        try:
+            height = int(input('Enter your height(0-1000): '))
+            if height in range(0, 1000):
+                break
+        except:
+            print("That's not a valid option!")
+
     gameWindow = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Lost in the Wood")
 
     # forrest image
     forrestImage = pygame.image.load(os.path.join('images', "forrest.jpg"))
-
-    # game over image
-    gameOverImage = pygame.image.load(os.path.join('images', "forrestgameover.jpg"))
 
     # person one image
     person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
@@ -1373,7 +1319,8 @@ def random_stimulation_1000():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "1000 * 1000:     " + str(stepCounter) + "\n"
+                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "\n"
+                recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
 
@@ -1391,81 +1338,3 @@ def random_stimulation_1000():
 
 
 main_menu()
-
-def k_3To5_game():
-    """
-
-    stimulate the k3-5 student lost in forrest game
-    :return: NONE
-
-    """
-    player_one_container = pygame.Rect(0, 0, person_width, person_height)
-
-    # map data
-    while True:
-        try:
-            width = int(input('Enter your width(0-1000):'))
-            if width in range(0,1000):
-                break
-            else:
-                print("Out of range")
-        except:
-            print("That's not a valid option!")
-
-    while True:
-        try:
-            height = int(input('Enter your height(0-1000): '))
-            if height in range(0,1000):
-                break
-        except:
-            print("That's not a valid option!")
-
-    gameWindow = pygame.display.set_mode((width, height))
-    pygame.display.set_caption("Lost in the Wood")
-
-    # forrest image
-    forrestImage = pygame.image.load(os.path.join('images', "forrest.jpg"))
-
-    # person one image
-    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
-    person_One_Image.convert_alpha()
-    person_One_Image.set_colorkey(alpha)
-
-    # person two image
-    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
-    person_Two_Image.convert_alpha()
-    person_Two_Image.set_colorkey(alpha)
-
-    # game over image
-    gameOverImage = pygame.image.load(os.path.join('images', "300gameover.jpg"))
-
-    player_two_container = pygame.Rect(width - person_width, height - person_height, person_width, person_height)
-    clock = pygame.time.Clock()
-    is_GameOver = False
-    stepCounter = 0
-    while not is_GameOver:
-        game_sound.play(-1)
-        clock.tick(FPS)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            # if they meet game over
-            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
-                    player_one_container.y - player_two_container.y) <= 50:
-                Data = str(width)+" * "+str(height)+":          " + str(stepCounter) + "\n"
-                record(Data)
-                is_GameOver = False
-                screen = pygame.display.set_mode((300, 300), 0, 32)
-                displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
-
-        key_pressed = pygame.key.get_pressed()
-        if key_pressed:
-            stepCounter += 1
-        player_one_movement(key_pressed, player_one_container, stepCounter, width, height)
-        player_two_movement(key_pressed, player_two_container, stepCounter, width, height)
-        displayGameWindow(gameWindow,
-                          player_one_container=player_one_container,
-                          forrestImage=forrestImage,
-                          player_two_container=player_two_container,
-                          person_One_Image=person_One_Image,
-                          person_Two_Image=person_Two_Image)
