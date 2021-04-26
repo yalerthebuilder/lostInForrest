@@ -2,7 +2,10 @@ Software engine class project
 
 Can you help patrick find spongebob?
 
-
+Development Environment:
+    Editor: Pycharm edu
+    link: https://www.jetbrains.com/pycharm/
+    
 Pre-requirement:
   pygame: type in "pip3 install pygame" in terminal
   install instructions reference: https://www.pygame.org/wiki/GettingStarted
