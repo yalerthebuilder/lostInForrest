@@ -21,8 +21,10 @@ Inside the menu page there will be
         user can view the credit of this program
 
 How to control:
-  Patrick(user 1): is able to press keyboard "w", "s", "a", "d" to move up, down, left, right
+  Patrick(user 1):    is able to press keyboard "w", "s", "a", "d" to move up, down, left, right
   Spongebob(user 2):  is able to press keyboard up, down, left, right to move up, down, left, right
+  Sandy(user 3):      is able to press keyboard "1", "2", "3", "4" to move up, down, left, right
+  Squid(user 4):      is able to press keyboard "6", "7", "8", "9" to move up, down, left, right
 
 
 How to win:
