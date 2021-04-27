@@ -7,10 +7,10 @@ import random
 """
 # Universal Info: line 15- 72 
 # Main Menu:      line 75-136
-# Game Engine:    line 139-336
-# Game Menu:      line 
-# Option:         line 661-729 
-# Credit:         line 732 -759 
+# Game Engine:    line 139-1130
+# Option:         line 1133-1213
+# Credit:         line 1216-1243
+# random Engine:  line 1246-2620
 """
 
 # time
