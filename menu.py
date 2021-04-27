@@ -4,7 +4,6 @@ import os
 from pygame.locals import *
 import random
 
-
 """
 # Universal Info: line 15- 72 
 # Main Menu:      line 75-136
@@ -593,7 +592,7 @@ def map300_manuelStimulation():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = "300 * 300:     " + str(stepCounter) + "\n"
+                Data = "300 * 300:          " + str(stepCounter) + "\n"
                 record(Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
@@ -739,7 +738,7 @@ def vanGogh_Map_manuelStimulation():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = "1200 * 800:         " + str(stepCounter) + "\n"
+                Data = "1200 * 800:        " + str(stepCounter) + "\n"
                 record(Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
@@ -809,7 +808,7 @@ def Map2560_manuelStimulation():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = "2560 * 1600:        " + str(stepCounter) + "\n"
+                Data = "2560 * 1600:      " + str(stepCounter) + "\n"
                 record(Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
@@ -1021,8 +1020,11 @@ def map300_manuelStimulation_3players():
             if event.type == pygame.QUIT:
                 sys.exit()
             # if they meet game over
-            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(player_one_container.x - player_three_container.x) <= 50 and abs(player_one_container.y - player_two_container.y) <= 50 and abs(player_one_container.y - player_three_container.y) <= 50:
-                Data = "300 * 300:     " + str(stepCounter) + "\n"
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50:
+                Data = "300 * 300:          " + str(stepCounter) + "    3players\n"
                 record(Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
@@ -1098,8 +1100,13 @@ def map300_manuelStimulation_4players():
             if event.type == pygame.QUIT:
                 sys.exit()
             # if they meet game over
-            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(player_one_container.x - player_three_container.x) <= 50 and abs(player_one_container.x - player_four_container.x) <= 50 and abs(player_one_container.y - player_two_container.y) <= 50 and abs(player_one_container.y - player_three_container.y) <= 50 and abs(player_one_container.y - player_four_container.y) <= 50:
-                Data = "300 * 300:     " + str(stepCounter) + "\n"
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.x - player_four_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50 and abs(
+                    player_one_container.y - player_four_container.y) <= 50:
+                Data = "300 * 300:          " + str(stepCounter) + "    4 players\n"
                 record(Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
@@ -1120,8 +1127,7 @@ def map300_manuelStimulation_4players():
                                   person_One_Image=person_One_Image,
                                   person_Two_Image=person_Two_Image,
                                   person_Three_Image=person_Three_Image,
-                                  person_Four_Image=person_Four_Image,)
-
+                                  person_Four_Image=person_Four_Image, )
 
 
 # option
@@ -1246,7 +1252,6 @@ def randomStimulationMenu():
     pygame.init()
     pygame.display.set_caption('LOST IN FORREST')
     game_sound.set_volume(0.01)
-    fps = 500
     screen = pygame.display.set_mode((500, 500), 0, 32)
     menuPicture = pygame.image.load(os.path.join('images', "menuImage.jpg"))
     click = False
@@ -1265,19 +1270,19 @@ def randomStimulationMenu():
         if button_1.collidepoint((mx, my)):
             if click:
                 print("300*300 Stimulation")
-                random_stimulation_500()
+                stimulation_300_300_MultiPlayerGameMenu()
         if button_2.collidepoint((mx, my)):
             if click:
                 print("500*500 Stimulation")
-                random_stimulation_500()
+                stimulation_500_500_MultiPlayerGameMenu()
         if button_3.collidepoint((mx, my)):
             if click:
                 print("1000*1000 Stimulation")
-                random_stimulation_1000()
+                stimulation_1000_1000_MultiPlayerGameMenu()
         if button_4.collidepoint((mx, my)):
             if click:
                 print("Build Your Map")
-                random_stimulation_CustomizeMap()
+                stimulation_customizedMap_MultiPlayerGameMenu()
         pygame.draw.rect(screen, (255, 0, 0), button_1)
         draw_text('300*300', font, (255, 255, 255), screen, 220, 100)
         pygame.draw.rect(screen, (255, 0, 0), button_2)
@@ -1447,6 +1452,70 @@ def player_four_random_movement(player_four_Container, width, height):
             pygame.mixer.Channel(0).play(collision_sound_loader, maxtime=600)
 
 
+def stimulation_300_300_MultiPlayerGameMenu():
+    """
+
+        Game Option Panel
+        :return: NONE
+    """
+    pygame.init()
+    pygame.display.set_caption('LOST IN FORREST')
+    screen = pygame.display.set_mode((500, 500), 0, 32)
+    menuPicture = pygame.image.load(os.path.join('images', "menuImage.jpg"))
+    gameClick = False
+    running = True
+    print("Selected Game")
+    while running:
+        # allow user to pick game mode
+        screen.fill((0, 0, 0))
+        screen.blit(menuPicture, (0, 0))
+        draw_text('ESC "Menu"', font, (255, 255, 255), screen, 20, 20)
+        draw_text('Select number of players', font, (255, 255, 255), screen, 20, 50)
+
+        mx, my = pygame.mouse.get_pos()
+
+        # button attribute
+        button_1 = pygame.Rect(150, 100, 200, 50)
+        button_2 = pygame.Rect(150, 200, 200, 50)
+        button_3 = pygame.Rect(150, 300, 200, 50)
+
+        if button_1.collidepoint((mx, my)):
+            if gameClick:
+                print("2 players")
+                random_stimulation_300()
+        if button_2.collidepoint((mx, my)):
+            if gameClick:
+                print("3 players")
+                random_stimulation_300_3player()
+        if button_3.collidepoint((mx, my)):
+            if gameClick:
+                print("4 players")
+                random_stimulation_300_4player()
+
+        # draw button
+        pygame.draw.rect(screen, (255, 0, 0), button_1)
+        draw_text('Dual Player', font, (255, 255, 255), screen, 200, 100)
+        pygame.draw.rect(screen, (255, 0, 0), button_2)
+        draw_text('Three Player', font, (255, 255, 255), screen, 200, 200)
+        pygame.draw.rect(screen, (255, 0, 0), button_3)
+        draw_text('Four Player', font, (255, 255, 255), screen, 200, 300)
+
+        gameClick = False
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    main_menu()
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    gameClick = True
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+
 def random_stimulation_300():
     """
     Random Stimulate map size of 300 * 300
@@ -1487,7 +1556,7 @@ def random_stimulation_300():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "300 * 300:     " + str(stepCounter) + "\n"
+                Data = "300 * 300:          " + str(stepCounter) + "\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -1504,6 +1573,225 @@ def random_stimulation_300():
                           player_two_container=player_two_container,
                           person_One_Image=person_One_Image,
                           person_Two_Image=person_Two_Image)
+
+
+def random_stimulation_300_3player():
+    """
+    Random Stimulate map size of 300 * 300 for 3 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    width, height = 300, 300
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "300map.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                player_one_container.y - player_two_container.y) <= 50 and abs(
+                player_one_container.y - player_three_container.y) <= 50:
+                Data = "300 * 300:          " + str(stepCounter) + "    3 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        print(player_one_container.x)
+        print(player_one_container.y)
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        displayGameWindow_player3(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image)
+
+
+def random_stimulation_300_4player():
+    """
+    Random Stimulate map size of 300 * 300 for 4 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    width, height = 300, 300
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "300map.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # person four image
+    person_Four_Image = pygame.image.load(os.path.join('images', "squid.jpg"))
+    person_Four_Image.convert_alpha()
+    person_Four_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+    player_four_container = pygame.Rect(width - 70, 0, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.x - player_four_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50 and abs(
+                    player_one_container.y - player_four_container.y) <= 50:
+                Data = "300 * 300:          " + str(stepCounter) + "    4 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        print(player_one_container.x)
+        print(player_one_container.y)
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        player_four_random_movement(player_four_container, width, height)
+        displayGameWindow_player4(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  player_four_container=player_four_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image,
+                                  person_Four_Image=person_Four_Image, )
+
+
+def stimulation_500_500_MultiPlayerGameMenu():
+    """
+
+        Game Option Panel
+        :return: NONE
+    """
+    pygame.init()
+    pygame.display.set_caption('LOST IN FORREST')
+    screen = pygame.display.set_mode((500, 500), 0, 32)
+    menuPicture = pygame.image.load(os.path.join('images', "menuImage.jpg"))
+    gameClick = False
+    running = True
+    print("Selected Game")
+    while running:
+        # allow user to pick game mode
+        screen.fill((0, 0, 0))
+        screen.blit(menuPicture, (0, 0))
+        draw_text('ESC "Menu"', font, (255, 255, 255), screen, 20, 20)
+        draw_text('Select number of players', font, (255, 255, 255), screen, 20, 50)
+
+        mx, my = pygame.mouse.get_pos()
+
+        # button attribute
+        button_1 = pygame.Rect(150, 100, 200, 50)
+        button_2 = pygame.Rect(150, 200, 200, 50)
+        button_3 = pygame.Rect(150, 300, 200, 50)
+
+        if button_1.collidepoint((mx, my)):
+            if gameClick:
+                print("2 players")
+                random_stimulation_500()
+        if button_2.collidepoint((mx, my)):
+            if gameClick:
+                print("3 players")
+                random_stimulation_500_3player()
+        if button_3.collidepoint((mx, my)):
+            if gameClick:
+                print("4 players")
+                random_stimulation_500_4player()
+
+        # draw button
+        pygame.draw.rect(screen, (255, 0, 0), button_1)
+        draw_text('Dual Player', font, (255, 255, 255), screen, 200, 100)
+        pygame.draw.rect(screen, (255, 0, 0), button_2)
+        draw_text('Three Player', font, (255, 255, 255), screen, 200, 200)
+        pygame.draw.rect(screen, (255, 0, 0), button_3)
+        draw_text('Four Player', font, (255, 255, 255), screen, 200, 300)
+
+        gameClick = False
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    main_menu()
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    gameClick = True
+
+        pygame.display.update()
+        mainClock.tick(60)
 
 
 def random_stimulation_500():
@@ -1565,6 +1853,225 @@ def random_stimulation_500():
                           person_Two_Image=person_Two_Image)
 
 
+def random_stimulation_500_3player():
+    """
+    Random Stimulate map size of 500 * 500 for 3 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    width, height = 500, 500
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "500map.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50:
+                Data = "500 * 500:          " + str(stepCounter) + "    3 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        print(player_one_container.x)
+        print(player_one_container.y)
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        displayGameWindow_player3(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image)
+
+
+def random_stimulation_500_4player():
+    """
+    Random Stimulate map size of 500 * 500 for 4 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    width, height = 500, 500
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "500map.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # person four image
+    person_Four_Image = pygame.image.load(os.path.join('images', "squid.jpg"))
+    person_Four_Image.convert_alpha()
+    person_Four_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+    player_four_container = pygame.Rect(width - 70, 0, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.x - player_four_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50 and abs(
+                    player_one_container.y - player_four_container.y) <= 50:
+                Data = "500 * 500:          " + str(stepCounter) + "    4 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        print(player_one_container.x)
+        print(player_one_container.y)
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        player_four_random_movement(player_four_container, width, height)
+        displayGameWindow_player4(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  player_four_container=player_four_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image,
+                                  person_Four_Image=person_Four_Image, )
+
+
+def stimulation_1000_1000_MultiPlayerGameMenu():
+    """
+
+        Game Option Panel
+        :return: NONE
+    """
+    pygame.init()
+    pygame.display.set_caption('LOST IN FORREST')
+    screen = pygame.display.set_mode((500, 500), 0, 32)
+    menuPicture = pygame.image.load(os.path.join('images', "menuImage.jpg"))
+    gameClick = False
+    running = True
+    print("Selected Game")
+    while running:
+        # allow user to pick game mode
+        screen.fill((0, 0, 0))
+        screen.blit(menuPicture, (0, 0))
+        draw_text('ESC "Menu"', font, (255, 255, 255), screen, 20, 20)
+        draw_text('Select number of players', font, (255, 255, 255), screen, 20, 50)
+
+        mx, my = pygame.mouse.get_pos()
+
+        # button attribute
+        button_1 = pygame.Rect(150, 100, 200, 50)
+        button_2 = pygame.Rect(150, 200, 200, 50)
+        button_3 = pygame.Rect(150, 300, 200, 50)
+
+        if button_1.collidepoint((mx, my)):
+            if gameClick:
+                print("2 players")
+                random_stimulation_1000()
+        if button_2.collidepoint((mx, my)):
+            if gameClick:
+                print("3 players")
+                random_stimulation_1000_3player()
+        if button_3.collidepoint((mx, my)):
+            if gameClick:
+                print("4 players")
+                random_stimulation_1000_4player()
+
+        # draw button
+        pygame.draw.rect(screen, (255, 0, 0), button_1)
+        draw_text('Dual Player', font, (255, 255, 255), screen, 200, 100)
+        pygame.draw.rect(screen, (255, 0, 0), button_2)
+        draw_text('Three Player', font, (255, 255, 255), screen, 200, 200)
+        pygame.draw.rect(screen, (255, 0, 0), button_3)
+        draw_text('Four Player', font, (255, 255, 255), screen, 200, 300)
+
+        gameClick = False
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    main_menu()
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    gameClick = True
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+
 def random_stimulation_1000():
     """
     Random Stimulate map size of 1000 * 1000
@@ -1606,7 +2113,7 @@ def random_stimulation_1000():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "2560 * 1600:        " + str(stepCounter) + "\n"
+                Data = "1000 * 1000:        " + str(stepCounter) + "\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -1624,9 +2131,224 @@ def random_stimulation_1000():
                           person_Two_Image=person_Two_Image)
 
 
+def random_stimulation_1000_3player():
+    """
+    Random Stimulate map size of 1000*1000 for 3 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    width, height = 1000, 1000
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "forrest.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50:
+                Data = "1000 * 1000:        " + str(stepCounter) + "    3 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        displayGameWindow_player3(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image)
+
+
+def random_stimulation_1000_4player():
+    """
+    Random Stimulate map size of 1000*1000 for 4 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    width, height = 500, 500
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "forrest.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # person four image
+    person_Four_Image = pygame.image.load(os.path.join('images', "squid.jpg"))
+    person_Four_Image.convert_alpha()
+    person_Four_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+    player_four_container = pygame.Rect(width - 70, 0, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.x - player_four_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50 and abs(
+                    player_one_container.y - player_four_container.y) <= 50:
+                Data = "1000*1000:        " + str(stepCounter) + "    4 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        player_four_random_movement(player_four_container, width, height)
+        displayGameWindow_player4(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  player_four_container=player_four_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image,
+                                  person_Four_Image=person_Four_Image, )
+
+
+def stimulation_customizedMap_MultiPlayerGameMenu():
+    """
+
+        Game Option Panel
+        :return: NONE
+    """
+    pygame.init()
+    pygame.display.set_caption('LOST IN FORREST')
+    screen = pygame.display.set_mode((500, 500), 0, 32)
+    menuPicture = pygame.image.load(os.path.join('images', "menuImage.jpg"))
+    gameClick = False
+    running = True
+    print("Selected Game")
+    while running:
+        # allow user to pick game mode
+        screen.fill((0, 0, 0))
+        screen.blit(menuPicture, (0, 0))
+        draw_text('ESC "Menu"', font, (255, 255, 255), screen, 20, 20)
+        draw_text('Select number of players', font, (255, 255, 255), screen, 20, 50)
+
+        mx, my = pygame.mouse.get_pos()
+
+        # button attribute
+        button_1 = pygame.Rect(150, 100, 200, 50)
+        button_2 = pygame.Rect(150, 200, 200, 50)
+        button_3 = pygame.Rect(150, 300, 200, 50)
+
+        if button_1.collidepoint((mx, my)):
+            if gameClick:
+                print("2 players")
+                random_stimulation_CustomizeMap()
+        if button_2.collidepoint((mx, my)):
+            if gameClick:
+                print("3 players")
+                random_stimulation_CustomizeMap_3player()
+        if button_3.collidepoint((mx, my)):
+            if gameClick:
+                print("4 players")
+                random_stimulation_CustomizeMap_4player()
+
+        # draw button
+        pygame.draw.rect(screen, (255, 0, 0), button_1)
+        draw_text('Dual Player', font, (255, 255, 255), screen, 200, 100)
+        pygame.draw.rect(screen, (255, 0, 0), button_2)
+        draw_text('Three Player', font, (255, 255, 255), screen, 200, 200)
+        pygame.draw.rect(screen, (255, 0, 0), button_3)
+        draw_text('Four Player', font, (255, 255, 255), screen, 200, 300)
+
+        gameClick = False
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    main_menu()
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    gameClick = True
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+
 def random_stimulation_CustomizeMap():
     """
-    Random Stimulate map size of 1000 * 1000
+    Random Stimulate map with customized size
     :return: NONE
     """
     pygame.init()
@@ -1648,6 +2370,8 @@ def random_stimulation_CustomizeMap():
             height = int(input('Enter your height(0-1000): '))
             if height in range(0, 1000):
                 break
+            else:
+                print("Out of range")
         except:
             print("That's not a valid option!")
 
@@ -1698,6 +2422,202 @@ def random_stimulation_CustomizeMap():
                           player_two_container=player_two_container,
                           person_One_Image=person_One_Image,
                           person_Two_Image=person_Two_Image)
+
+
+def random_stimulation_CustomizeMap_3player():
+    """
+    Random Stimulate map with customized size for 3 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    while True:
+        try:
+            width = int(input('Enter your width(0-1000):'))
+            if width in range(0, 1000):
+                break
+            else:
+                print("Out of range")
+        except:
+            print("That's not a valid option!")
+
+    while True:
+        try:
+            height = int(input('Enter your height(0-1000): '))
+            if height in range(0, 1000):
+                break
+            else:
+                print("Out of range")
+        except:
+            print("That's not a valid option!")
+
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "forrest.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50:
+                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "     3 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        displayGameWindow_player3(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image)
+
+
+def random_stimulation_CustomizeMap_4player():
+    """
+    Random Stimulate map with customized size for 4 players
+    :return: NONE
+    """
+    pygame.init()
+    pygame.mixer.init()
+
+    """
+        Random Stimulate map with customized size 
+        :return: NONE
+        """
+    pygame.init()
+    pygame.mixer.init()
+
+    # map data
+    while True:
+        try:
+            width = int(input('Enter your width(0-1000):'))
+            if width in range(0, 1000):
+                break
+            else:
+                print("Out of range")
+        except:
+            print("That's not a valid option!")
+
+    while True:
+        try:
+            height = int(input('Enter your height(0-1000): '))
+            if height in range(0, 1000):
+                break
+            else:
+                print("Out of range")
+        except:
+            print("That's not a valid option!")
+
+    gameWindow = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Lost in the Wood")
+
+    # forrest image
+    forrestImage = pygame.image.load(os.path.join('images', "forrest.jpg"))
+
+    # person one image
+    person_One_Image = pygame.image.load(os.path.join('images', "pat.png"))
+    person_One_Image.convert_alpha()
+    person_One_Image.set_colorkey(alpha)
+
+    # person two image
+    person_Two_Image = pygame.image.load(os.path.join('images', "spongebob.png"))
+    person_Two_Image.convert_alpha()
+    person_Two_Image.set_colorkey(alpha)
+
+    # person three image
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image.convert_alpha()
+    person_Three_Image.set_colorkey(alpha)
+
+    # person four image
+    person_Four_Image = pygame.image.load(os.path.join('images', "squid.jpg"))
+    person_Four_Image.convert_alpha()
+    person_Four_Image.set_colorkey(alpha)
+
+    # init position and draw player
+    player_one_container = pygame.Rect(0, 0, person_width, person_height)
+    player_two_container = pygame.Rect(width - 70, height - 70, person_width, person_height)
+    player_three_container = pygame.Rect(0, height - 70, person_width, person_height)
+    player_four_container = pygame.Rect(width - 70, 0, person_width, person_height)
+
+    clock = pygame.time.Clock()
+    is_GameOver = False
+    stepCounter = 0
+    while not is_GameOver:
+        game_sound.play(-1)
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            # if they meet game over
+            if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
+                    player_one_container.x - player_three_container.x) <= 50 and abs(
+                    player_one_container.x - player_four_container.x) <= 50 and abs(
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50 and abs(
+                    player_one_container.y - player_four_container.y) <= 50:
+                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "     4 players\n"
+                recordRandom(Data)
+                is_GameOver = False
+                randomStimulationMenu()
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed:
+            stepCounter += 1
+        player_one_random_movement(player_one_container, width, height)
+        player_two_random_movement(player_two_container, width, height)
+        player_three_random_movement(player_three_container, width, height)
+        player_four_random_movement(player_four_container, width, height)
+        displayGameWindow_player4(gameWindow,
+                                  forrestImage=forrestImage,
+                                  player_one_container=player_one_container,
+                                  player_two_container=player_two_container,
+                                  player_three_container=player_three_container,
+                                  player_four_container=player_four_container,
+                                  person_One_Image=person_One_Image,
+                                  person_Two_Image=person_Two_Image,
+                                  person_Three_Image=person_Three_Image,
+                                  person_Four_Image=person_Four_Image, )
 
 
 main_menu()
