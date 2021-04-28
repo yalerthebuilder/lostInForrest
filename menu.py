@@ -1000,7 +1000,7 @@ def map300_manuelStimulation_3players():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -1074,7 +1074,7 @@ def map300_manuelStimulation_4players():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -1602,7 +1602,7 @@ def random_stimulation_300_3player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -1674,7 +1674,7 @@ def random_stimulation_300_4player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -1880,7 +1880,7 @@ def random_stimulation_500_3player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -1952,7 +1952,7 @@ def random_stimulation_500_4player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -2158,7 +2158,7 @@ def random_stimulation_1000_3player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -2228,7 +2228,7 @@ def random_stimulation_1000_4player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -2470,7 +2470,7 @@ def random_stimulation_CustomizeMap_3player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
@@ -2566,7 +2566,7 @@ def random_stimulation_CustomizeMap_4player():
     person_Two_Image.set_colorkey(alpha)
 
     # person three image
-    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.jpg"))
+    person_Three_Image = pygame.image.load(os.path.join('images', "sandy.png"))
     person_Three_Image.convert_alpha()
     person_Three_Image.set_colorkey(alpha)
 
