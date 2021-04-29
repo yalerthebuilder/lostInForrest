@@ -36,14 +36,14 @@ game_sound = pygame.mixer.Sound("sound/spooky.mp3")
 game_sound.set_volume(0.01)
 celebration_sound = pygame.mixer.Sound("sound/auld.mp3")
 collision_sound_loader = pygame.mixer.Sound("sound/hitWall.mp3")
-#game_sound.play()
+game_sound.play()
 
 # SCREEN
 screen = pygame.display.set_mode((500, 500))
 
 
 # write data
-def record(filename,data):
+def record(filename, data):
     """
     :param filename: filename
     :param data: string
@@ -74,7 +74,7 @@ def reporter(steps):
     """
     print("Your highest steps:" + str(max(steps)))
     print("Your highest steps:" + str(min(steps)))
-    print("Your average steps:" + str(sum(steps)/len(steps)))
+    print("Your average steps:" + str(sum(steps) / len(steps)))
 
 
 def main_menu():
@@ -597,7 +597,7 @@ def map300_manuelStimulation():
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
                 filename = "results/300results.txt"
-                Data = str(stepCounter) + "  two players "+"\n"
+                Data = str(stepCounter) + "  two players " + "\n"
                 record(filename, Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
@@ -673,7 +673,7 @@ def map500_manuelStimulation():
                     player_one_container.y - player_two_container.y) <= 50:
                 filename = "results/500results.txt"
                 Data = str(stepCounter) + "  two players " + "\n"
-                record(filename,Data)
+                record(filename, Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
@@ -1030,8 +1030,8 @@ def map300_manuelStimulation_3players():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.x - player_three_container.x) <= 50 and abs(
-                    player_one_container.y - player_two_container.y) <= 50 and abs(
-                    player_one_container.y - player_three_container.y) <= 50:
+                player_one_container.y - player_two_container.y) <= 50 and abs(
+                player_one_container.y - player_three_container.y) <= 50:
                 filename = "results/300results.txt"
                 Data = str(stepCounter) + "  three players " + "\n"
                 record(filename, Data)
@@ -1111,10 +1111,10 @@ def map300_manuelStimulation_4players():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.x - player_three_container.x) <= 50 and abs(
-                    player_one_container.x - player_four_container.x) <= 50 and abs(
-                    player_one_container.y - player_two_container.y) <= 50 and abs(
-                    player_one_container.y - player_three_container.y) <= 50 and abs(
-                    player_one_container.y - player_four_container.y) <= 50:
+                player_one_container.x - player_four_container.x) <= 50 and abs(
+                player_one_container.y - player_two_container.y) <= 50 and abs(
+                player_one_container.y - player_three_container.y) <= 50 and abs(
+                player_one_container.y - player_four_container.y) <= 50:
                 filename = "results/300results.txt"
                 Data = str(stepCounter) + "  four players " + "\n"
                 record(filename, Data)
@@ -1566,12 +1566,10 @@ def random_stimulation_300():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "300 * 300:          " + str(stepCounter) + "\n"
+                Data = "300 " + str(stepCounter) + " 2players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
-        print(player_one_container.x)
-        print(player_one_container.y)
         key_pressed = pygame.key.get_pressed()
         if key_pressed:
             stepCounter += 1
@@ -1633,9 +1631,9 @@ def random_stimulation_300_3player():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.x - player_three_container.x) <= 50 and abs(
-                player_one_container.y - player_two_container.y) <= 50 and abs(
-                player_one_container.y - player_three_container.y) <= 50:
-                Data = "300 * 300:          " + str(stepCounter) + "    3 players\n"
+                    player_one_container.y - player_two_container.y) <= 50 and abs(
+                    player_one_container.y - player_three_container.y) <= 50:
+                Data = "300 " + str(stepCounter) + " 3players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -1715,7 +1713,7 @@ def random_stimulation_300_4player():
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50 and abs(
                     player_one_container.y - player_four_container.y) <= 50:
-                Data = "300 * 300:          " + str(stepCounter) + "    4 players\n"
+                Data = "300 " + str(stepCounter) + " 4players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -1845,7 +1843,7 @@ def random_stimulation_500():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "500 * 500:          " + str(stepCounter) + "\n"
+                Data = "500 " + str(stepCounter) + " 2players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -1913,7 +1911,7 @@ def random_stimulation_500_3player():
                     player_one_container.x - player_three_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50:
-                Data = "500 * 500:          " + str(stepCounter) + "    3 players\n"
+                Data = "500 " + str(stepCounter) + " 3players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -1993,7 +1991,7 @@ def random_stimulation_500_4player():
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50 and abs(
                     player_one_container.y - player_four_container.y) <= 50:
-                Data = "500 * 500:          " + str(stepCounter) + "    4 players\n"
+                Data = "500         " + str(stepCounter) + "   4players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -2123,7 +2121,7 @@ def random_stimulation_1000():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = "1000 * 1000:        " + str(stepCounter) + "\n"
+                Data = "1000 " + str(stepCounter) + " 2players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -2191,7 +2189,7 @@ def random_stimulation_1000_3player():
                     player_one_container.x - player_three_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50:
-                Data = "1000 * 1000:        " + str(stepCounter) + "    3 players\n"
+                Data = "1000 " + str(stepCounter) + " 3players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -2269,7 +2267,7 @@ def random_stimulation_1000_4player():
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50 and abs(
                     player_one_container.y - player_four_container.y) <= 50:
-                Data = "1000*1000:        " + str(stepCounter) + "    4 players\n"
+                Data = "1000 " + str(stepCounter) + " 4players\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -2416,7 +2414,7 @@ def random_stimulation_CustomizeMap():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 100 and abs(
                     player_one_container.y - player_two_container.y) <= 100:
-                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "\n"
+                Data = str(width)+"*"+str(height) + "          " + str(stepCounter) + " 2player\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -2503,7 +2501,7 @@ def random_stimulation_CustomizeMap_3player():
                     player_one_container.x - player_three_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50:
-                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "     3 players\n"
+                Data = str(width)+"*"+str(height) + "          " + str(stepCounter) + " 3player\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -2607,7 +2605,7 @@ def random_stimulation_CustomizeMap_4player():
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50 and abs(
                     player_one_container.y - player_four_container.y) <= 50:
-                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "     4 players\n"
+                Data = str(width) + "*" + str(height) + "          " + str(stepCounter) + " 4player\n"
                 recordRandom(Data)
                 is_GameOver = False
                 randomStimulationMenu()
@@ -2629,3 +2627,5 @@ def random_stimulation_CustomizeMap_4player():
                                   person_Three_Image=person_Three_Image,
                                   person_Four_Image=person_Four_Image, )
 
+
+main_menu()
