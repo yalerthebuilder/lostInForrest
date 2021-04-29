@@ -1,4 +1,7 @@
 # this program is to calculate the average, min and highest steps of each map stimulation
+import sys
+
+
 def selector(file1, file2, file3, file4, file5):
     """
 
@@ -177,6 +180,8 @@ def Menu():
     """
     option = input("Enter 1 to view stimulation data, 2 to view manual input data, 3 to exit menu\t")
     while True:
+        if option == "3":
+            sys.exit()
         if option in ["1", "2"]:
             if option == "1":
                 stimulationData()
@@ -184,8 +189,6 @@ def Menu():
             if option == "2":
                 returnData()
                 Menu()
-        if option == "3":
-            break
         else:
             option = input("Enter 1 to view stimulation data, 2 to view manual input data, 3 to exit menu\t")
 
