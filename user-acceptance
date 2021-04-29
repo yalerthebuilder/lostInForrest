@@ -1,0 +1,77 @@
+launch the menu.py
+
+1. click start -> select the basic map -> select Easy
+    a map with given size with two players will displayed
+    type in up, down, left right. if the character moves, test pass
+    type in w,s,a,d if the other character moves, test pass
+    when they meet each other, it takes back to menu
+    open the results/300results.txt
+    the steps counter will be saved on the last row( record function pass)
+
+2. click start -> select the basic map -> select Medium
+    a map with given size with two players will displayed
+    type in up, down, left right. if the character moves, test pass
+    type in w,s,a,d if the other character moves, test pass
+    when they meet each other, it takes back to menu
+    open the results/500results.txt
+    the steps counter will be saved on the last row( record function pass)
+
+3. click start -> select the basic map -> select Hard
+    a map with given size with two players will displayed
+    type in up, down, left right. if the character moves, test pass
+    type in w,s,a,d if the other character moves, test pass
+    when they meet each other, it takes back to menu
+    open the results/hardresults.txt
+    the steps counter will be saved on the last row( record function pass)
+
+4. click start -> select the basic map -> select Hell
+    a map with given size with two players will displayed
+    type in up, down, left right. if the character moves, test pass
+    type in w,s,a,d if the other character moves, test pass
+    when they meet each other, it takes back to menu
+    open the results/hellresults.txt
+    the steps counter will be saved on the last row( record function pass)
+
+5. click start -> multiple palyer -> select dual
+    a map with given size with two players will displayed
+    type in up, down, left right. if the character moves, test pass
+    type in w,s,a,d if the other character moves, test pass
+    when they meet each other, it takes back to menu
+    open the results/300results.txt
+    the steps counter will be saved on the last row( record function pass)
+
+7. click start -> multiple palyer -> select 3players
+    a map with given size with three players will displayed
+    type in up, down, left right. if the character moves, test pass
+    type in w,s,a,d if the other character moves, test pass
+    type in 1,2,3,4 if player3(sandy) moves, test pass
+    when they meet each other, it takes back to menu
+    open the results/300results.txt
+    the steps counter will be saved on the last row( record function pass) with "3players"
+
+7. click start -> multiple palyer -> select 4players
+    a map with given size with three players will displayed
+    type in up, down, left right. if the character moves, test pass
+    type in w,s,a,d if the other character moves, test pass
+    type in 1,2,3,4 if player3(sandy) moves, test pass
+    type in 6,7,8,9 if player4(squid) moves, test pass
+    when they meet each other, it takes back to menu
+    open the results/300results.txt
+    the steps counter will be saved on the last row( record function pass) with "4players"
+
+
+8. click option, there are three buttons, volume low/medium/high
+    click each button is able to adjust the sound
+    if sound level changes, test pass
+
+9. click credit, if the credit page displayed, test pass
+
+10. go to random stimulation page
+    select map size
+    select player mode
+    if player selection and map size is correct,test pass
+    once each stimulation is over it will be saved in random.txt file
+
+11. go to analyzer.py and run it
+    enter 1: sorted stimulation data will be displayed for each player mode and map size
+    enter 2: user is allow to select different map size and it's stimulation
