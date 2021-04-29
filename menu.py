@@ -4,15 +4,6 @@ import os
 from pygame.locals import *
 import random
 
-"""
-# Universal Info: line 15- 72 
-# Main Menu:      line 75-136
-# Game Engine:    line 139-1130
-# Option:         line 1133-1213
-# Credit:         line 1216-1243
-# random Engine:  line 1246-2620
-"""
-
 # time
 mainClock = pygame.time.Clock()
 
@@ -45,19 +36,20 @@ game_sound = pygame.mixer.Sound("sound/spooky.mp3")
 game_sound.set_volume(0.01)
 celebration_sound = pygame.mixer.Sound("sound/auld.mp3")
 collision_sound_loader = pygame.mixer.Sound("sound/hitWall.mp3")
-game_sound.play()
+#game_sound.play()
 
 # SCREEN
 screen = pygame.display.set_mode((500, 500))
 
 
 # write data
-def record(data):
+def record(filename,data):
     """
+    :param filename: filename
     :param data: string
     :return: NONE
     """
-    file = open("data.txt", "a")
+    file = open(filename, "a")
     file.write(data)
     print("User Data recorded")
 
@@ -71,6 +63,18 @@ def recordRandom(data):
     file = open("random.txt", "a")
     file.write(data)
     print("Stimulation Data Recorded")
+
+
+# reporter
+def reporter(steps):
+    """
+
+    :param steps: a list of how many steps takes
+    :return: NONE
+    """
+    print("Your highest steps:" + str(max(steps)))
+    print("Your highest steps:" + str(min(steps)))
+    print("Your average steps:" + str(sum(steps)/len(steps)))
 
 
 def main_menu():
@@ -592,8 +596,9 @@ def map300_manuelStimulation():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = "300 * 300:          " + str(stepCounter) + "\n"
-                record(Data)
+                filename = "results/300results.txt"
+                Data = str(stepCounter) + "  two players "+"\n"
+                record(filename, Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
@@ -666,8 +671,9 @@ def map500_manuelStimulation():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = "500 * 500:          " + str(stepCounter) + "\n"
-                record(Data)
+                filename = "results/500results.txt"
+                Data = str(stepCounter) + "  two players " + "\n"
+                record(filename,Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
@@ -738,8 +744,9 @@ def vanGogh_Map_manuelStimulation():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = "1200 * 800:        " + str(stepCounter) + "\n"
-                record(Data)
+                filename = "results/hardresults.txt"
+                Data = str(stepCounter) + "  two players " + "\n"
+                record(filename, Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
@@ -808,8 +815,9 @@ def Map2560_manuelStimulation():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = "2560 * 1600:      " + str(stepCounter) + "\n"
-                record(Data)
+                filename = "results/hellresults.txt"
+                Data = str(stepCounter) + "  two players " + "\n"
+                record(filename, Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
@@ -888,10 +896,10 @@ def k_3To5_game():
             # if they meet game over
             if abs(player_one_container.x - player_two_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50:
-                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "\n"
-                record(Data)
+                Data = str(width) + " * " + str(height) + ":          " + str(stepCounter) + "   two player\n"
+                filename = "results/randomMap.txt"
+                record(filename, Data)
                 is_GameOver = False
-                screen = pygame.display.set_mode((300, 300), 0, 32)
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
         key_pressed = pygame.key.get_pressed()
@@ -1024,8 +1032,9 @@ def map300_manuelStimulation_3players():
                     player_one_container.x - player_three_container.x) <= 50 and abs(
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50:
-                Data = "300 * 300:          " + str(stepCounter) + "    3players\n"
-                record(Data)
+                filename = "results/300results.txt"
+                Data = str(stepCounter) + "  three players " + "\n"
+                record(filename, Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
@@ -1106,8 +1115,9 @@ def map300_manuelStimulation_4players():
                     player_one_container.y - player_two_container.y) <= 50 and abs(
                     player_one_container.y - player_three_container.y) <= 50 and abs(
                     player_one_container.y - player_four_container.y) <= 50:
-                Data = "300 * 300:          " + str(stepCounter) + "    4 players\n"
-                record(Data)
+                filename = "results/300results.txt"
+                Data = str(stepCounter) + "  four players " + "\n"
+                record(filename, Data)
                 is_GameOver = False
                 displayGameOverWindow(gameWindow, gameOverImage=gameOverImage, stepCounter=stepCounter)
 
@@ -2619,5 +2629,3 @@ def random_stimulation_CustomizeMap_4player():
                                   person_Three_Image=person_Three_Image,
                                   person_Four_Image=person_Four_Image, )
 
-
-main_menu()
