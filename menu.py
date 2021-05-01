@@ -62,7 +62,7 @@ def recordRandom(data):
     """
     file = open("random.txt", "a")
     file.write(data)
-    print("Stimulation Data Recorded")
+    print("Simulation Data Recorded")
 
 
 # reporter
@@ -113,7 +113,7 @@ def main_menu():
                 credit()
         if button_4.collidepoint((mx, my)):
             if click:
-                print("Stimulation Menu")
+                print("Simulation Menu")
                 randomStimulationMenu()
         pygame.draw.rect(screen, (255, 0, 0), button_1)
         draw_text('Start', font, (255, 255, 255), screen, 220, 100)
@@ -122,7 +122,7 @@ def main_menu():
         pygame.draw.rect(screen, (255, 0, 0), button_3)
         draw_text('Credit', font, (255, 255, 255), screen, 220, 300)
         pygame.draw.rect(screen, (255, 0, 0), button_4)
-        draw_text('Stimulation', font, (255, 255, 255), screen, 190, 400)
+        draw_text('Simulation', font, (255, 255, 255), screen, 190, 400)
 
         click = False
         for event in pygame.event.get():
@@ -1269,7 +1269,8 @@ def randomStimulationMenu():
         screen.fill((0, 0, 0))
         screen.blit(menuPicture, (0, 0))
         draw_text('ESC "exit"', font, (255, 255, 255), screen, 20, 20)
-        draw_text('Random Stimulation Mode', font, (255, 255, 255), screen, 20, 50)
+        draw_text('Random Simulation'
+                  ' Mode', font, (255, 255, 255), screen, 20, 50)
         mx, my = pygame.mouse.get_pos()
 
         # rect( x, y, len, width)
@@ -1279,15 +1280,15 @@ def randomStimulationMenu():
         button_4 = pygame.Rect(150, 400, 200, 50)
         if button_1.collidepoint((mx, my)):
             if click:
-                print("300*300 Stimulation")
+                print("300*300 Simulation")
                 stimulation_300_300_MultiPlayerGameMenu()
         if button_2.collidepoint((mx, my)):
             if click:
-                print("500*500 Stimulation")
+                print("500*500 Simulation")
                 stimulation_500_500_MultiPlayerGameMenu()
         if button_3.collidepoint((mx, my)):
             if click:
-                print("1000*1000 Stimulation")
+                print("1000*1000 Simulation")
                 stimulation_1000_1000_MultiPlayerGameMenu()
         if button_4.collidepoint((mx, my)):
             if click:
