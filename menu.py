@@ -2366,8 +2366,8 @@ def random_stimulation_CustomizeMap():
     # map data
     while True:
         try:
-            width = int(input('Enter your width(0-1000):'))
-            if width in range(0, 1000):
+            width = int(input('Enter your width(200-1000):'))
+            if width in range(200, 1000):
                 break
             else:
                 print("Out of range")
@@ -2376,8 +2376,8 @@ def random_stimulation_CustomizeMap():
 
     while True:
         try:
-            height = int(input('Enter your height(0-1000): '))
-            if height in range(0, 1000):
+            height = int(input('Enter your height(200-1000): '))
+            if height in range(200, 1000):
                 break
             else:
                 print("Out of range")
@@ -2444,8 +2444,8 @@ def random_stimulation_CustomizeMap_3player():
     # map data
     while True:
         try:
-            width = int(input('Enter your width(0-1000):'))
-            if width in range(0, 1000):
+            width = int(input('Enter your width(200-1000):'))
+            if width in range(200, 1000):
                 break
             else:
                 print("Out of range")
@@ -2454,8 +2454,8 @@ def random_stimulation_CustomizeMap_3player():
 
     while True:
         try:
-            height = int(input('Enter your height(0-1000): '))
-            if height in range(0, 1000):
+            height = int(input('Enter your height(200-1000): '))
+            if height in range(200, 1000):
                 break
             else:
                 print("Out of range")
@@ -2540,8 +2540,8 @@ def random_stimulation_CustomizeMap_4player():
     # map data
     while True:
         try:
-            width = int(input('Enter your width(0-1000):'))
-            if width in range(0, 1000):
+            width = int(input('Enter your width(200-1000):'))
+            if width in range(200, 1000):
                 break
             else:
                 print("Out of range")
@@ -2550,8 +2550,8 @@ def random_stimulation_CustomizeMap_4player():
 
     while True:
         try:
-            height = int(input('Enter your height(0-1000): '))
-            if height in range(0, 1000):
+            height = int(input('Enter your height(200-1000): '))
+            if height in range(200, 1000):
                 break
             else:
                 print("Out of range")
